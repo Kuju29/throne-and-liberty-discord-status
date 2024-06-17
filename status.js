@@ -172,12 +172,14 @@ function getCurrentWeekMinute() {
   };
 
   const totalMinutes = (dayMapping[dayOfWeek] * 24 * 60) + (hour * 60) + minute;
-  
+
   const startDate = new Date('2024-05-26');
   const currentDate = new Date(currentTime.toDateString());
-  const weeksElapsed = Math.floor((currentDate - startDate) / (7 * 24 * 60 * 60 * 1000));
-
-  const weekIncrement = (weeksElapsed * 30) % 120;
+  const daysElapsed = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
+  const weeksElapsed = Math.floor(daysElapsed / 7);
+  
+  const increments = [90, 0, 30, 60];
+  const weekIncrement = increments[weeksElapsed % 4];
 
   return totalMinutes + weekIncrement;
 }
