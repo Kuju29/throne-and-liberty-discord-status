@@ -7,3 +7,10 @@ You need to change the api to your server number.
 You can view your server's API number here.
 
 https://api-goats.plaync.com/tl/v2.0/game/server?locale=en-US
+
+
+how to use:
+```js
+const { startStatusUpdates } = require('./status');
+startStatusUpdates(client)
+```
