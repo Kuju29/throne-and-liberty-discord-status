@@ -11,6 +11,10 @@ https://api-goats.plaync.com/tl/v2.0/game/server?locale=en-US
 
 how to use:
 ```js
+const { Client } = require("discord.js");
 const { startStatusUpdates } = require('./status');
-startStatusUpdates(client)
+
+client.once('ready', async () => {
+  startStatusUpdates(client);
+});
 ```
